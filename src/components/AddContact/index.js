@@ -7,7 +7,7 @@ const AddPost = ({ contacts, addContact }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
+  const [gender,setGender]= useState("");
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ const AddPost = ({ contacts, addContact }) => {
       contact.phone === phone ? contact : null
     );
 
-    if (!email || !name || !phone) {
+    if (!email || !name || !phone || !gender) {
       return toast.warning("Please fill in all fields!!");
     }
     if (checkContactEmailExists.length > 0) {
@@ -34,10 +34,11 @@ const AddPost = ({ contacts, addContact }) => {
       email,
       name,
       phone,
+      gender,
     };
 
     addContact(data);
-    toast.success("Contact added successfully!!");
+    toast.success("user added successfully!!");
     history.push("/");
   };
 
@@ -72,6 +73,15 @@ const AddPost = ({ contacts, addContact }) => {
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+            <input
+                className="form-control"
+                type="text"
+                placeholder="Gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
               />
             </div>
             <div className="form-group">

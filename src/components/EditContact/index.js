@@ -14,11 +14,13 @@ const EditContact = ({ contacts, updateContact }) => {
     setName(currentContact.name);
     setEmail(currentContact.email);
     setPhone(currentContact.phone);
+    setGender(currentContact.gender);
   }, [currentContact]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [gender,setGender]= useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,10 +50,11 @@ const EditContact = ({ contacts, updateContact }) => {
       email,
       name,
       phone,
+      gender,
     };
 
     updateContact(data);
-    toast.success("Contact updated successfully!!");
+    toast.success("user updated successfully!!");
     history.push("/");
   };
 
@@ -89,6 +92,14 @@ const EditContact = ({ contacts, updateContact }) => {
                   value={phone}
                   placeholder={"Phone"}
                   onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  value={gender}
+                  placeholder={"gender"}
+                  onChange={(e) => setGender(e.target.value)}
                 />
               </div>
               <div className="form-group d-flex align-items-center justify-content-between my-2">

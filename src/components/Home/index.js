@@ -17,6 +17,7 @@ const Home = ({ contacts, deleteContact }) => {
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
+                <th scope="col">Gender                                          </th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -28,6 +29,7 @@ const Home = ({ contacts, deleteContact }) => {
                     <td>{contact.name}</td>
                     <td>{contact.email}</td>
                     <td>{contact.phone}</td>
+                    <td>{contact.gender}</td>
                     <td>
                       <Link
                         to={`/edit/${contact.id}`}
