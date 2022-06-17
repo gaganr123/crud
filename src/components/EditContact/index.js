@@ -35,7 +35,7 @@ const EditContact = ({ contacts, updateContact }) => {
         : null
     );
 
-    if (!email || !name || !phone) {
+    if (!email || !name || !phone || !gender) {
       return toast.warning("Please fill in all fields!!");
     }
     if (checkContactEmailExists.length > 0) {
